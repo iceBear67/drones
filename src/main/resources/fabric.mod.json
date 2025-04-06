@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "drones",
+  "version": "${version}",
+  "name": "drones",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "icon": "assets/drones/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "io.ib67.drones.client.DronesClient"
+    ],
+    "main": [
+      "io.ib67.drones.Drones"
+    ]
+  },
+  "mixins": [
+    "drones.mixins.json",
+    {
+      "config": "drones.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
