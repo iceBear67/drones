@@ -86,7 +86,7 @@ public class Drones implements ModInitializer {
 
     private void onPlayerJoystickState(JoystickStateC2S state, ServerPlayNetworking.Context context) {
         var player = context.player();
-        player.sendMessage(Text.of("LSB: " + state.lsbX() + ", " + state.lsbY() + " | RSB: " + state.rsbX() + ", " + state.rsbY()), true);
+        //player.sendMessage(Text.of("LSB: " + state.lsbX() + ", " + state.lsbY() + " | RSB: " + state.rsbX() + ", " + state.rsbY()), true);
         if (state.rb()) {
             reselectDrone(player);
             return;
@@ -113,6 +113,7 @@ public class Drones implements ModInitializer {
                 (yRate * DroneEntity.MAX_SPEED_VERTICAL),
                 (state.lsbX() * DroneEntity.MAX_SPEED_HORIZONTAL)
         );
+        player.sendMessage(Text.of("X: " + -1 * state.lsbY() + " Y: " + state.lsbX()), true);
         drone.addAcceleration(vec);
         System.out.println(vec);
         drone.setYaw(drone.getYaw() + (state.rsbX() * 18));
